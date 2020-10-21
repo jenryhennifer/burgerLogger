@@ -1,0 +1,23 @@
+{
+  "name": "burgerlogger",
+  "version": "1.0.0",
+  "description": "Node Express Handlebars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenryhennifer/burgerLogger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenryhennifer/burgerLogger/issues"
+  },
+  "homepage": "https://github.com/jenryhennifer/burgerLogger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0"
+  }
+}
