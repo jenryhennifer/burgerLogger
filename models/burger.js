@@ -10,13 +10,13 @@ var burger = {
     });
   },
 
-  create: function (cols, vals, cb) {
-    orm.createOne('burgers', cols, vals, function (res) {
+  create: function (columns, values, cb) {
+    orm.createOne('burgers', columns, values, function (res) {
       cb(res);
     });
   },
-  update: function (objColVals, condition, cb) {
-    orm.updateOne('burgers', objColVals, condition, function (res) {
+  update: function (columns, values, cb) {
+    orm.updateOne('burgers', columns, values, function (res) {
       cb(res);
     });
   },
