@@ -1,7 +1,7 @@
 $(function(){
     $('.burger-devour').on('click', function(event){
         var id = $(this).data('id');
-        var newSleep = $(this).data('newDevour');
+        var newDevour = $(this).data('newDevour');
 
         var devourState = {
             devour: newDevour
@@ -16,6 +16,13 @@ $(function(){
             }
         )
         console.log('CLICK')
+    })
+    $('.create-form').on('submit', function(event){
+        event.preventDefault();
+
+        var newBurger = {
+            burger_name: $('#b').val().trim(),
+        }
     })
 
 });
