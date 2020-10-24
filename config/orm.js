@@ -46,12 +46,13 @@ var orm = {
   },
   //adding a burger
   insertOne: function (table, columns, values, cb) {
-    var queryString = 'UPDATE'+ table;
+    var queryString = 'INSERT INTO '+ table;
 
-    qeuryString += ' (';
+    queryString += ' (';
     queryString += columns.toString();
-    queryString += 'values (';
-    queryString += printQuestionMarks(val.length);
+    queryString += ") ";
+    queryString += ' VALUES (';
+    queryString += printQuestionMarks(values.length);
     queryString += ') ';
 
     connection.query(queryString, values, function(err,results){
@@ -63,7 +64,7 @@ var orm = {
   },
   //update burger status
   updateOne: function (table, columns, values, cb) {
-    var queryString = 'UPDATE' + table;
+    var queryString = 'UPDATE ' + table;
 
     queryString += ' SET ';
     queryString += objToSql(columns);

@@ -11,7 +11,7 @@ var burger = {
   },
 
   create: function (columns, values, cb) {
-    orm.createOne('burgers', columns, values, function (res) {
+    orm.insertOne('burgers', columns, values, function (res) {
       cb(res);
     });
   },
