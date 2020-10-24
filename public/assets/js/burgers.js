@@ -6,20 +6,21 @@ $(function(){
         var devourState = {
             devoured: true
         };
-        $.ajax('/api/burgers/' + id, {
-            type: 'PUT',
-            data: devourState
-        }).then(
-            function(){
-                console.log('changed devour:', devourState);
-                location.reload();
-            }
-        )
-        console.log('CLICK')
+        location.reload();
+
+        // $.ajax('/api/burgers/' + id, {
+        //     type: 'PUT',
+        //     data: devourState
+        // }).then(
+        //     function(){
+        //         console.log('changed devour:', devourState);
+        //         location.reload();
+        //     }
+        // )
+        // console.log('CLICK')
     })
 
     $('.create-form').on('submit', function(event){
-        alert(4)
         event.preventDefault();
         console.log('clicked')
 
@@ -39,4 +40,3 @@ $(function(){
     })
 
 });
-console.log('hello')
