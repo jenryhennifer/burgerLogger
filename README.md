@@ -21,9 +21,69 @@ Node Express Handlebars
 
 ## Sample
 
+![sample img](public/assets/img/sample.png)
+
 <hr />
 
 ## Description
+
+The purpose of this project was to create an app that logs burgers. It starts with a user in put of a desired burger and produces it to a list called uneaten burgers. when EAT IT is clicked then the burger is moved to a list called burgers eaten. 
+
+A database was created to store the data regarding burgers. The database goes through a connection that communicates to the ORM file. 
+
+```
+if (process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL)
+}else{
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "burgers_db"
+  });
+}
+```
+if the JAWSDB connection isn't available, it uses a local host.
+
+```
+  selectAll: function (tableInput, cb) {
+    var queryString = 'SELECT * FROM ' + tableInput + ';';
+    connection.query(queryString, function (err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+```
+
+This then distributes information to the models to create the callback. This is then exported to the controller file to produce the get, post, put, and delete methods.
+
+```
+router.get('/', (req, res) => {
+    burger.all(function(data){
+        var obj = {
+            burgers: data
+        };
+        console.log(obj);
+        res.render('index',obj);
+    })
+});
+```
+
+Handlebars was used to create the HTML files. A partial handlebars file was used to produce buttons with the proper tags.
+
+```
+<p>
+    {{burger_name}}
+
+    <button class='burger-devour btn btn-danger' data-id='{{id}}' data-newDevour='{{devoured}}'>
+        {{#if devoured}} YUMMY! {{else}} EAT IT!{{/if}}
+    </button>
+
+</p>
+```
+
 
 <hr />
 
